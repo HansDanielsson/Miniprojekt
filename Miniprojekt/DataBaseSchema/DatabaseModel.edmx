@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ColorOnScreens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="rgb" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PictureOnScreens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TextOnScreens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WrongText" Type="nvarchar(max)" />
+          <Property Name="OkText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserNames">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserRecords">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Points" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_UserRecords_dbo_UserNames_UserID">
+          <End Role="UserNames" Type="Self.UserNames" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRecords" Type="Self.UserRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserNames">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRecords">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ColorOnScreens" EntityType="Self.ColorOnScreens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PictureOnScreens" EntityType="Self.PictureOnScreens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TextOnScreens" EntityType="Self.TextOnScreens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserNames" EntityType="Self.UserNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRecords" EntityType="Self.UserRecords" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_UserRecords_dbo_UserNames_UserID" Association="Self.FK_dbo_UserRecords_dbo_UserNames_UserID">
+            <End Role="UserNames" EntitySet="UserNames" />
+            <End Role="UserRecords" EntitySet="UserRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ColorOnScreens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rgb" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PictureOnScreens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TextOnScreens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WrongText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OkText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserNames">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NickName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserRecords" Relationship="Self.FK_dbo_UserRecords_dbo_UserNames_UserID" FromRole="UserNames" ToRole="UserRecords" />
+        </EntityType>
+        <EntityType Name="UserRecords">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Points" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserNames" Relationship="Self.FK_dbo_UserRecords_dbo_UserNames_UserID" FromRole="UserRecords" ToRole="UserNames" />
+        </EntityType>
+        <Association Name="FK_dbo_UserRecords_dbo_UserNames_UserID">
+          <End Role="UserNames" Type="Self.UserNames" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRecords" Type="Self.UserRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserNames">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRecords">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ColorOnScreens" EntityType="Self.ColorOnScreens" />
+          <EntitySet Name="PictureOnScreens" EntityType="Self.PictureOnScreens" />
+          <EntitySet Name="TextOnScreens" EntityType="Self.TextOnScreens" />
+          <EntitySet Name="UserNames" EntityType="Self.UserNames" />
+          <EntitySet Name="UserRecords" EntityType="Self.UserRecords" />
+          <AssociationSet Name="FK_dbo_UserRecords_dbo_UserNames_UserID" Association="Self.FK_dbo_UserRecords_dbo_UserNames_UserID">
+            <End Role="UserNames" EntitySet="UserNames" />
+            <End Role="UserRecords" EntitySet="UserRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ColorOnScreens">
+            <EntityTypeMapping TypeName="Model.ColorOnScreens">
+              <MappingFragment StoreEntitySet="ColorOnScreens">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="rgb" ColumnName="rgb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PictureOnScreens">
+            <EntityTypeMapping TypeName="Model.PictureOnScreens">
+              <MappingFragment StoreEntitySet="PictureOnScreens">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TextOnScreens">
+            <EntityTypeMapping TypeName="Model.TextOnScreens">
+              <MappingFragment StoreEntitySet="TextOnScreens">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WrongText" ColumnName="WrongText" />
+                <ScalarProperty Name="OkText" ColumnName="OkText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserNames">
+            <EntityTypeMapping TypeName="Model.UserNames">
+              <MappingFragment StoreEntitySet="UserNames">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRecords">
+            <EntityTypeMapping TypeName="Model.UserRecords">
+              <MappingFragment StoreEntitySet="UserRecords">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
