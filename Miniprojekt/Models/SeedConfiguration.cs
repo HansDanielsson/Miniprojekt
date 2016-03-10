@@ -1,20 +1,16 @@
-namespace Miniprojekt.Migrations
+ï»¿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Miniprojekt.Models
 {
-    using Miniprojekt.Models;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Miniprojekt.DataAccessLayer.ItemContext>
+    public class SeedConfiguration
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = true;
-        }
+    }
 
-        protected override void Seed(Miniprojekt.DataAccessLayer.ItemContext context)
-        {
+    //protected override void Seed(Miniprojekt.DataAccessLayer.ItemContext context)
+    //    {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -41,9 +37,9 @@ namespace Miniprojekt.Migrations
             //    );
 
             //context.ColorOnScreen.AddOrUpdate(
-            //    new ColorOnScreen { Name = "Röd", rgb = 16711680 },
-            //    new ColorOnScreen { Name = "Grön", rgb = 65280 },
-            //    new ColorOnScreen { Name = "Blå", rgb = 255 },
+            //    new ColorOnScreen { Name = "RÃ¶d", rgb = 16711680 },
+            //    new ColorOnScreen { Name = "GrÃ¶n", rgb = 65280 },
+            //    new ColorOnScreen { Name = "BlÃ¥", rgb = 255 },
             //    new ColorOnScreen { Name = "Gul", rgb = 16776960 },
             //    new ColorOnScreen { Name = "Svart", rgb = 0 },
             //    new ColorOnScreen { Name = "Brun", rgb = 10824234 }
@@ -52,18 +48,17 @@ namespace Miniprojekt.Migrations
             //context.TextOnScreen.AddOrUpdate(
             //    new TextOnScreen
             //    {
-            //        WrongText = "Mors*lilla*olle*i*skogen*gick*ut*en*dag*för*att*handla*mat.",
-            //        OkText = "Mors lilla olle i skogen gick ut en dag för att handla mat." },
+            //        WrongText = "Mors*lilla*olle*i*skogen*gick*ut*en*dag*fÃ¶r*att*handla*mat.",
+            //        OkText = "Mors lilla olle i skogen gick ut en dag fÃ¶r att handla mat." },
             //    new TextOnScreen
             //    {
             //        WrongText = "En*liten*gul*anka*vill*bada*i*ditt*badkar.",
             //        OkText = "En liten gul anka vill bada i ditt badkar." },
             //    new TextOnScreen
             //    {
-            //        WrongText = "Som*man*skriver*kan*man*läsa*här.",
-            //        OkText = "Som man skriver kan man läsa här." }
+            //        WrongText = "Som*man*skriver*kan*man*lÃ¤sa*hÃ¤r.",
+            //        OkText = "Som man skriver kan man lÃ¤sa hÃ¤r." }
             //    );
 
-        }
-    }
+        //}
 }
