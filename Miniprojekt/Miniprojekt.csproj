@@ -208,6 +208,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PictureOnScreen.cs" />
+    <Compile Include="Models\PictureOnScreensController.cs" />
     <Compile Include="Models\SeedConfiguration.cs" />
     <Compile Include="Models\TextOnScreen.cs" />
     <Compile Include="Models\UserName.cs" />
@@ -216,6 +217,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Bild1.bmp" />
+    <Content Include="Content\Bild2.bmp" />
+    <Content Include="Content\Bild3.bmp" />
+    <Content Include="Content\Bild4.bmp" />
+    <Content Include="Content\Bild5.bmp" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -293,6 +299,11 @@
     <Content Include="Views\ColorOnScreens\Details.cshtml" />
     <Content Include="Views\ColorOnScreens\Edit.cshtml" />
     <Content Include="Views\ColorOnScreens\Index.cshtml" />
+    <Content Include="Views\PictureOnScreens\Create.cshtml" />
+    <Content Include="Views\PictureOnScreens\Delete.cshtml" />
+    <Content Include="Views\PictureOnScreens\Details.cshtml" />
+    <Content Include="Views\PictureOnScreens\Edit.cshtml" />
+    <Content Include="Views\PictureOnScreens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -60,5 +60,12 @@ namespace Miniprojekt.Models
             //        OkText = "Som man skriver kan man läsa här." }
             //    );
 
-        //}
+			//context.PictureOnScreen.AddOrUpdate(
+			//new PictureOnScreen { Image = "Fyrkant" },
+			//new PictureOnScreen { Image = "Cirkel" },
+			//new PictureOnScreen { Image = "Triangel" },
+			//new PictureOnScreen { Image = "Hexagon" },
+			//new PictureOnScreen { Image = "Polygon" }
+			//);
+		//}
 }
