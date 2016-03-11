@@ -14,6 +14,6 @@ namespace Miniprojekt.Models
         [DisplayName("Färg namn")]
         public string Name { get; set; }
         [DisplayName("RGB kod")]
-        public int rgb { get; set; }
+        public string rgb { get; set; }
     }
 }
