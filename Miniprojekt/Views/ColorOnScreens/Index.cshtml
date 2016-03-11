@@ -5,9 +5,13 @@
 }
 
 <h2>Ange färgen:</h2>
-
-<textarea id="TextArea1" rows="1" cols="20" style="color:255">
-
+@{
+    int antal = Model.Count();
+    Random randomGen = new Random();
+    int colorIndex = randomGen.Next(antal);
+    var Color = Model.ElementAt(colorIndex).rgb;
+}
+<textarea id="ColorText" rows="1" cols="20" style="color:@Color">
 Vilken färg är detta?
 </textarea>
 <br />
