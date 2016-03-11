@@ -40,14 +40,14 @@ namespace Miniprojekt.Migrations
             //    new UserRecord { Category = CategoryType.PictureOnScreen, UserID = 3, Points = 300 }
             //    );
 
-            //context.ColorOnScreen.AddOrUpdate(
-            //    new ColorOnScreen { Name = "Röd", rgb = "Red" },
-            //    new ColorOnScreen { Name = "Grön", rgb = "Green" },
-            //    new ColorOnScreen { Name = "Blå", rgb = "Blue" },
-            //    new ColorOnScreen { Name = "Gul", rgb = "Yellow" },
-            //    new ColorOnScreen { Name = "Svart", rgb = "Black" },
-            //    new ColorOnScreen { Name = "Brun", rgb = "Brown" }
-            //    );
+			context.ColorOnScreen.AddOrUpdate(
+				new ColorOnScreen { Name = "Röd", rgb = "Red" },
+				new ColorOnScreen { Name = "Grön", rgb = "Green" },
+				new ColorOnScreen { Name = "Blå", rgb = "Blue" },
+				new ColorOnScreen { Name = "Gul", rgb = "Yellow" },
+				new ColorOnScreen { Name = "Svart", rgb = "Black" },
+				new ColorOnScreen { Name = "Brun", rgb = "Brown" }
+				);
 
             //context.TextOnScreen.AddOrUpdate(
             //    new TextOnScreen

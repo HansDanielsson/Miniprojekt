@@ -208,7 +208,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PictureOnScreen.cs" />
-    <Compile Include="Models\PictureOnScreensController.cs" />
+    <Compile Include="Controllers\PictureOnScreensController.cs" />
     <Compile Include="Models\SeedConfiguration.cs" />
     <Compile Include="Models\TextOnScreen.cs" />
     <Compile Include="Models\UserName.cs" />
