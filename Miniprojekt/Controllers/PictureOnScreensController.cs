@@ -20,6 +20,19 @@ namespace Miniprojekt.Models
             return View(db.PictureOnScreen.ToList());
         }
 
+		public ActionResult Index2()
+		{
+			var result = from v in db.UserRecord
+						 where v != null && (int)v.Category == 0 && v.UserID == 1
+						 select v;
+			foreach (UserRecord v in result)
+			{
+				v.Points = v.Points + 1;
+			}
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+
         // GET: PictureOnScreens/Details/5
         public ActionResult Details(int? id)
         {

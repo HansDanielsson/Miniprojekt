@@ -16,7 +16,7 @@ namespace Miniprojekt
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ColorOnScreens", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "PictureOnScreens", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

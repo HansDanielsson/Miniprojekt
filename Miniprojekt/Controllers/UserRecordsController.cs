@@ -21,6 +21,8 @@ namespace Miniprojekt.Controllers
             var userRecord = db.UserRecord.Include(u => u.username);
             return View(userRecord.ToList());
         }
+		
+
 
         // GET: UserRecords/Details/5
         public ActionResult Details(int? id)

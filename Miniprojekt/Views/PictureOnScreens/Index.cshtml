@@ -12,7 +12,7 @@
         if (IsPost)
         {
             var str1 = Request["text1"];    //inskriven text
-            var num1 = Request["text2"];    //xval kommer in vid submit
+            var num1 = Request["text2"];    //xval kommer in vid submit            
             bool found = false;
             xval = num1.AsInt();
             var str2 = "";
@@ -32,9 +32,12 @@
             {
                 resultMessage = "Det var nära men " + str1 + " var ej rätt svar.";
             }
-            //*''Set points in UserRecords table ''''''''''''''''''''''''''''
-
-            //*''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            else
+            { 
+                //*''Set points in UserRecords table ''''''''''''''''''''''''''''
+                @Html.ActionLink("Lägg till poäng", "Index2");
+                //*''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+            }
         }
         Random random = new Random();           //initiera slumptalsvariabel
         int randomNumber = random.Next(1, 6);   //slumpa fram tal större eller lika med 1 och mindre än 6
@@ -78,8 +81,7 @@
                 }
             default: break;     //nothing happens
         }
-
-    }
+}
 </p>
 <form action="" method="post">
     <label for="text1">Skriv ordet i grundform för figuren som visas.</label>
