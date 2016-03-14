@@ -2,7 +2,60 @@
 
 @{
     ViewBag.Title = "Färg i text";
-    ViewBag.ColorOnScreen = 0;
+    //ViewBag.ColorOnScreen = 0;
+}
+@{
+    if (IsPost)
+    {
+        var knappColor0 = Request["Röd"];
+        var knappColor1 = Request["Grön"];
+        var knappColor2 = Request["Blå"];
+        var knappColor3 = Request["Gul"];
+        var knappColor4 = Request["Svart"];
+        var knappColor5 = Request["Brun"];
+        if ((knappColor0 != null) && (ViewBag.ColorIndex == 0))
+        {
+            //if (ViewBag.ColorIndex == 0)
+            //{
+                ViewBag.ColorOnScreen++;
+            //}
+        }
+        if ((knappColor1 != null) && (ViewBag.ColorIndex == 1))
+        {
+            //if (ViewBag.ColorIndex == 1)
+            //{
+                ViewBag.ColorOnScreen++;
+            //}
+        }
+        if (knappColor2 != null)
+        {
+            if (ViewBag.ColorIndex == 2)
+            {
+                ViewBag.ColorOnScreen++;
+            }
+        }
+        if (knappColor3 != null)
+        {
+            if (ViewBag.ColorIndex == 3)
+            {
+                ViewBag.ColorOnScreen++;
+            }
+        }
+        if (knappColor4 != null)
+        {
+            if (ViewBag.ColorIndex == 4)
+            {
+                ViewBag.ColorOnScreen++;
+            }
+        }
+        if (knappColor5 != null)
+        {
+            if (ViewBag.ColorIndex == 5)
+            {
+                ViewBag.ColorOnScreen++;
+            }
+        }
+    }
 }
 
 <h2>Ange färgen:</h2>
@@ -11,19 +64,25 @@
     Random randomGen = new Random();
     int colorIndex = randomGen.Next(antal);
     var Color = Model.ElementAt(colorIndex).rgb;
+    ViewBag.ColorIndex = colorIndex;
 }
 <textarea id="ColorText" rows="2" cols="40" style="background-color:@Color; color:white">
-Vilken färg är detta?
+    Vilken färg är detta?
 </textarea>
 <br />
 <br />
-@foreach (var item in Model)
-{
-    <input id="@Html.DisplayFor(modelItem => item.Name)" name="@Html.DisplayFor(modelItem => item.Name)" type="submit" value="@Html.DisplayFor(modelItem => item.Name)" />
-}
+<form action="" method="post">
+    @foreach (var item in Model)
+    {
+        <input id="@Html.DisplayFor(modelItem => item.Name)" name="@Html.DisplayFor(modelItem => item.Name)" type="submit" value="@Html.DisplayFor(modelItem => item.Name)" />
+    }
+</form>
 <br />
 <br />
 <p>Poäng :</p>
 <textarea id="ColorCount" rows="2" cols="10">
     @ViewBag.ColorOnScreen
+</textarea>
+<textarea id="ColorIndex" rows="2" cols="10">
+    @ViewBag.ColorIndex
 </textarea>
