@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Färg i text";
+    ViewBag.ColorOnScreen = 0;
 }
 
 <h2>Ange färgen:</h2>
@@ -11,7 +12,7 @@
     int colorIndex = randomGen.Next(antal);
     var Color = Model.ElementAt(colorIndex).rgb;
 }
-<textarea id="ColorText" rows="1" cols="20" style="color:@Color">
+<textarea id="ColorText" rows="2" cols="40" style="background-color:@Color; color:white">
 Vilken färg är detta?
 </textarea>
 <br />
@@ -20,3 +21,9 @@ Vilken färg är detta?
 {
     <input id="@Html.DisplayFor(modelItem => item.Name)" name="@Html.DisplayFor(modelItem => item.Name)" type="submit" value="@Html.DisplayFor(modelItem => item.Name)" />
 }
+<br />
+<br />
+<p>Poäng :</p>
+<textarea id="ColorCount" rows="2" cols="10">
+    @ViewBag.ColorOnScreen
+</textarea>
