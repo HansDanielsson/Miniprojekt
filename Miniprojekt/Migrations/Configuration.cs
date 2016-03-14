@@ -29,9 +29,9 @@ namespace Miniprojekt.Migrations
             //
 
             //context.UserName.AddOrUpdate(
-            //    new UserName { NickName="User1"},
-            //    new UserName { NickName="User2"},
-            //    new UserName { NickName="User3"}
+            //    new UserName { NickName = "User1" },
+            //    new UserName { NickName = "User2" },
+            //    new UserName { NickName = "User3" }
             //    );
 
             //context.UserRecord.AddOrUpdate(
@@ -40,29 +40,33 @@ namespace Miniprojekt.Migrations
             //    new UserRecord { Category = CategoryType.PictureOnScreen, UserID = 3, Points = 300 }
             //    );
 
-			context.ColorOnScreen.AddOrUpdate(
-				new ColorOnScreen { Name = "Röd", rgb = "Red" },
-				new ColorOnScreen { Name = "Grön", rgb = "Green" },
-				new ColorOnScreen { Name = "Blå", rgb = "Blue" },
-				new ColorOnScreen { Name = "Gul", rgb = "Yellow" },
-				new ColorOnScreen { Name = "Svart", rgb = "Black" },
-				new ColorOnScreen { Name = "Brun", rgb = "Brown" }
-				);
+            //context.ColorOnScreen.AddOrUpdate(
+            //    new ColorOnScreen { Name = "Röd", rgb = "Red" },
+            //    new ColorOnScreen { Name = "Grön", rgb = "Green" },
+            //    new ColorOnScreen { Name = "Blå", rgb = "Blue" },
+            //    new ColorOnScreen { Name = "Gul", rgb = "Yellow" },
+            //    new ColorOnScreen { Name = "Svart", rgb = "Black" },
+            //    new ColorOnScreen { Name = "Brun", rgb = "Brown" }
+            //    );
 
             //context.TextOnScreen.AddOrUpdate(
             //    new TextOnScreen
             //    {
             //        WrongText = "Mors*lilla*olle*i*skogen*gick*ut*en*dag*för*att*handla*mat.",
-            //        OkText = "Mors lilla olle i skogen gick ut en dag för att handla mat." },
+            //        OkText = "Mors lilla olle i skogen gick ut en dag för att handla mat."
+            //    },
             //    new TextOnScreen
             //    {
             //        WrongText = "En*liten*gul*anka*vill*bada*i*ditt*badkar.",
-            //        OkText = "En liten gul anka vill bada i ditt badkar." },
+            //        OkText = "En liten gul anka vill bada i ditt badkar."
+            //    },
             //    new TextOnScreen
             //    {
             //        WrongText = "Som*man*skriver*kan*man*läsa*här.",
-            //        OkText = "Som man skriver kan man läsa här." }
+            //        OkText = "Som man skriver kan man läsa här."
+            //    }
             //    );
+
 			//context.UserName.AddOrUpdate(
 			//	new UserName { NickName = "User1" },
 			//	new UserName { NickName = "User2" },
@@ -99,13 +103,14 @@ namespace Miniprojekt.Migrations
 			//		OkText = "Som man skriver kan man läsa här."
 			//	}
 			//	);
-			//context.PictureOnScreen.AddOrUpdate(
-			//new PictureOnScreen { Image = "Fyrkant" },
-			//new PictureOnScreen { Image = "Cirkel" },
-			//new PictureOnScreen { Image = "Triangel" },
-			//new PictureOnScreen { Image = "Hexagon" },
-			//new PictureOnScreen { Image = "Polygon" }
-			//);
+
+            //context.PictureOnScreen.AddOrUpdate(
+            //new PictureOnScreen { Image = "Fyrkant" },
+            //new PictureOnScreen { Image = "Cirkel" },
+            //new PictureOnScreen { Image = "Triangel" },
+            //new PictureOnScreen { Image = "Hexagon" },
+            //new PictureOnScreen { Image = "Polygon" }
+            //);
         }
     }
 }
