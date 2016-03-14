@@ -164,6 +164,7 @@
     <Compile Include="Controllers\ColorOnScreensController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserRecordsController.cs" />
     <Compile Include="DataAccessLayer\ItemContext.cs" />
     <Compile Include="DataBaseSchema\ColorOnScreens.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
@@ -304,6 +305,11 @@
     <Content Include="Views\PictureOnScreens\Details.cshtml" />
     <Content Include="Views\PictureOnScreens\Edit.cshtml" />
     <Content Include="Views\PictureOnScreens\Index.cshtml" />
+    <Content Include="Views\UserRecords\Create.cshtml" />
+    <Content Include="Views\UserRecords\Delete.cshtml" />
+    <Content Include="Views\UserRecords\Details.cshtml" />
+    <Content Include="Views\UserRecords\Edit.cshtml" />
+    <Content Include="Views\UserRecords\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

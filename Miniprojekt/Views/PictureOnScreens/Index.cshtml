@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Miniprojekt.Models.PictureOnScreen>
-
 @{
     ViewBag.Title = "Bildfråga";
 }
@@ -7,27 +6,88 @@
 <h2>Bildfråga</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @{
+        int xval = 0;
+        var resultMessage = "";
+        if (IsPost)
+        {
+            var str1 = Request["text1"];    //inskriven text
+            var num1 = Request["text2"];    //xval kommer in vid submit
+            bool found = false;
+            xval = num1.AsInt();
+            var str2 = "";
+            var xcount = 1;
+            foreach (var item in Model)
+            {
+                str2 = item.Image;          //text från db
+                if ((str1 == str2) && (xval == xcount))//jämför text, kolla att index stämmmer
+                {
+                    resultMessage = "Bra! det var en " + str1 + " och det ger dig +1 poäng!";  //skriv till resultaträknaren för kategorin
+                    found = true;
+                    break;
+                }
+                xcount++;
+            }
+            if (!found)
+            {
+                resultMessage = "Det var nära men " + str1 + " var ej rätt svar.";
+            }
+            //*''Set points in UserRecords table ''''''''''''''''''''''''''''
+
+            //*''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        }
+        Random random = new Random();           //initiera slumptalsvariabel
+        int randomNumber = random.Next(1, 6);   //slumpa fram tal större eller lika med 1 och mindre än 6
+        xval = randomNumber;
+        switch (xval)
+        {
+            case 1:
+                {
+                    <!--<input type="text" name="text1" value="Fyrkant" hidden>-->
+                    <img src="/Content/Bild1.bmp" alt="No image"
+                         style="float:left;width:400px;height:400px;">
+                    break;
+                }
+            case 2:
+                {
+                    <!--<input type="text" name="text1" value="Cirkel" hidden>-->
+                    <img src="/Content/Bild2.bmp" alt="No image"
+                         style=" float:left;width:400px;height:400px;">
+                    break;
+                }
+            case 3:
+                {
+                    <!--<input type="text" name="text1" value="Triangel" hidden>-->
+                    <img src="/Content/Bild3.bmp" alt="No image"
+                         style=" float:left;width:400px;height:400px;">
+                    break;
+                }
+            case 4:
+                {
+                    <!--<input type="text" name="text1" value="Hexagon" hidden>-->
+                    <img src="/Content/Bild4.bmp" alt="No image"
+                         style=" float:left;width:400px;height:400px;">
+                    break;
+                }
+            case 5:
+                {
+                    <!--<input type="text" name="text1" value="Polygon" hidden>-->
+                    <img src="/Content/Bild5.bmp" alt="No image"
+                         style=" float:left;width:400px;height:400px;">
+                    break;
+                }
+            default: break;     //nothing happens
+        }
+
+    }
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th></th>
-    </tr>
+<form action="" method="post">
+    <label for="text1">Skriv ordet i grundform för figuren som visas.</label>
+    <br>
+    <input type="text" name="text1">
+    <input type="text" name="text2" value=@xval hidden>
+    <input type="submit" value=" Testa ">
+</form>
+<br />
+@resultMessage
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
